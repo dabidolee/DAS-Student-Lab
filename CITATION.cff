@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, cite the released version and the underlying dataset/software listed in the documentation."
+title: "DAS Student Lab"
+type: software
+authors:
+  - family-names: "Lee"
+    given-names: "David"
+version: 0.0.1
+abstract: "Pre-alpha educational scaffold for beginner-facing Distributed Acoustic Sensing workflows."
+repository-code: "https://example.invalid/replace-before-release"
+preferred-citation:
+  type: software
+  title: "DAS Student Lab"
+  authors:
+    - family-names: "Lee"
+      given-names: "David"
+  version: 0.0.1

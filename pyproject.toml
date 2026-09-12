@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "das-student-lab"
+version = "0.0.1"
+description = "Starter scaffold for beginner-facing Distributed Acoustic Sensing education"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "David Lee" },
+]
+keywords = ["distributed acoustic sensing", "education", "scientific python"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Education",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = [
+  "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+science = [
+  "dascore>=0.1.20",
+  "das4whales",
+  "matplotlib>=3.8",
+  "scipy>=1.12",
+]
+dev = [
+  "build>=1.2",
+  "pytest>=8",
+  "ruff>=0.9",
+]
+
+[project.scripts]
+das-student-lab = "das_student_lab.cli:main"
+
+[project.urls]
+Dataset = "https://doi.org/10.58046/5J60-FJ89"
+Documentation = "https://example.invalid/replace-before-release"
+Repository = "https://example.invalid/replace-before-release"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/das_student_lab"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
