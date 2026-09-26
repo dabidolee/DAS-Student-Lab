@@ -1,14 +1,7 @@
-# License Decision Required Before Public Release
+# License Decision
 
-No final code license has been selected for this starter repository.
+This project is licensed under the MIT License.
 
-David should choose a license only after reviewing:
+Decided 2026-09-27, after consulting Dr. Park regarding the GPL-3.0 licensing of the related Goestchel et al. localization repository (see docs/related-work.md). No code has been copied or adapted from that repository or from any other GPL-licensed source; DASCore and DAS4Whales are used only through their public APIs, per docs/architecture.md's design principle. MIT was chosen as a simple, permissive license appropriate for a small educational package, on Dr. Park's recommendation.
 
-- whether any WHOI- or mentor-owned code will be included;
-- whether code is copied or adapted from GPL-licensed software;
-- whether the project merely depends on DASCore/DAS4Whales through their public APIs;
-- data licensing and redistribution terms, which are separate from code licensing;
-- Dr. Park's guidance.
-
-Do not replace this file with a license merely because an AI assistant recommends one. Record the decision and rationale in `docs/decision-log.md`.
-
+Full rationale recorded in docs/decision-log.md, D-008.

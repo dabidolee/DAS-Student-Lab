@@ -25,6 +25,10 @@ class ArraySummary:
     infinite_count: int
     minimum: float | None
     maximum: float | None
+    mean: float | None 
+    standard_deviation: float | None 
+    dtype: str 
+    frequency_resolution_hz: float
 
 
 def summarize_array(
@@ -61,11 +65,26 @@ def summarize_array(
             "data must be a two-dimensional array ordered as (channels, time samples)"
         )
     if not np.issubdtype(array.dtype, np.number):
-        raise TypeError("data must contain numeric values")
+        raise TypeError(
+            f"data must contain numeric values, got dtype {array.dtype}; "
+            "convert your array with something like array.astype(float) first"
+        )
     if array.shape[0] == 0 or array.shape[1] == 0:
-        raise ValueError("data must contain at least one channel and one time sample")
+        raise ValueError(
+            f"data has shape {array.shape}, but summarize_array needs at least "
+            "one channel and one time sample; check that you loaded the full array"
+        )
     if not np.isfinite(sample_rate_hz) or sample_rate_hz <= 0:
         raise ValueError("sample_rate_hz must be a positive finite number")
+    max_bytes = 500 * 1024 * 1024
+    if array.nbytes > max_bytes:
+        raise ValueError(
+            f"data is {array.nbytes / (1024**2):.1f} MiB, which exceeds the "
+            f"{max_bytes / (1024**2):.0f} MiB limit for this diagnostic; use a "
+            "smaller subset of the array"
+
+          )
+
     if not np.isfinite(channel_spacing_m) or channel_spacing_m <= 0:
         raise ValueError("channel_spacing_m must be a positive finite number")
 
@@ -73,8 +92,11 @@ def summarize_array(
     finite_values = array[finite]
     minimum = float(np.min(finite_values)) if finite_values.size else None
     maximum = float(np.max(finite_values)) if finite_values.size else None
+    mean = float(np.mean(finite_values)) if finite_values.size else None 
+    standard_deviation = float(np.std(finite_values)) if finite_values.size else None
 
     channels, samples = array.shape
+    frequency_resolution_hz = float(sample_rate_hz) / samples
     return ArraySummary(
         channels=channels,
         samples=samples,
@@ -87,6 +109,10 @@ def summarize_array(
         infinite_count=int(np.isinf(array).sum()),
         minimum=minimum,
         maximum=maximum,
+        mean=mean,
+        standard_deviation=standard_deviation,
+        dtype=str(array.dtype),
+        frequency_resolution_hz=frequency_resolution_hz,
     )
 
 
@@ -111,5 +137,8 @@ def format_summary(summary: ArraySummary) -> str:
             f"  Array memory: {memory_mib:.3f} MiB",
             f"  NaN / infinite values: {summary.nan_count} / {summary.infinite_count}",
             f"  Finite minimum / maximum: {min_text} / {max_text}",
+	    f"  Mean / standard deviation: {summary.mean if summary.mean is not None else 'no finite values'} / {summary.standard_deviation if summary.standard_deviation is not None else 'no finite values'}",
+            f"  Data type: {summary.dtype}",
+            f"  Frequency resolution: {summary.frequency_resolution_hz:.4g} Hz (sample_rate_hz / number of time samples; the smallest frequency difference this array can distinguish)",
         ]
     )

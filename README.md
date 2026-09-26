@@ -4,19 +4,20 @@
 
 DAS Student Lab is a proposed beginner-facing Python package for learning how to inspect DAS arrays, use safely sized examples, preserve data provenance, and begin reproducible experiments with established DAS tools.
 
-## What this starter already does
+## What this package already does
 
-- Installs as a modern `src/`-layout Python package.
+- Installs as a modern `src/`-layout Python package, published to TestPyPI.
 - Generates a deterministic, explicitly synthetic time-distance array.
-- Summarizes array shape, duration, distance span, memory, and invalid values.
-- Stores the official OOI dataset citation and project URL.
-- Includes baseline unit tests and continuous-integration configuration.
+- Summarizes array shape, duration, distance span, memory, dtype, mean, standard deviation, frequency resolution, and invalid values.
+- Downloads a small, real, checksum-verified OOI example file, with size limits, caching, and a full provenance manifest.
+- Reads a bounded subset of a real Silixa TDMS file into a numpy array.
+- Converts arrays into DASCore Patch objects, so DASCore's own processing tools (like `pass_filter`) work on this project's data.
+- Includes four tutorials: what DAS data is, waterfall visualization and filtering on synthetic data, recording a reproducible project, and a first look at real measured data.
+- Includes baseline unit tests, all currently passing, and continuous-integration configuration.
 - Includes persistent AI-assistant instructions and research/decision logs.
 
 ## What is deliberately not implemented
 
-- Public OOI downloading or caching.
-- DASCore/DAS4Whales adapters.
 - Whale detection, matched filtering, moveout fitting, or localization.
 - Claims that the synthetic generator is a validated acoustic-propagation model.
 - A final package name, license, institutional affiliation, or publication claim.

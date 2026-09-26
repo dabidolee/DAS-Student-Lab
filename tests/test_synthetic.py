@@ -54,3 +54,7 @@ def test_synthetic_rejects_frequency_above_nyquist() -> None:
     with pytest.raises(ValueError, match="Nyquist"):
         make_synthetic_whale(sample_rate_hz=100, call_frequency_hz=50)
 
+def test_synthetic_rejects_non_integer_seed() -> None:
+    with pytest.raises(TypeError, match="seed must be an integer"):
+        make_synthetic_whale(seed=3.5)
+

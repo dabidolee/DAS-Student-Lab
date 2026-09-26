@@ -1,0 +1,33 @@
+{
+  "project_name": "my_first_das_project",
+  "created_utc": "2026-09-20T19:17:00.963463+00:00",
+  "data_source": "Synthetic data only (make_synthetic_whale). No external dataset was used in this run; a real-data version of this tutorial requires a TDMS reading adapter that does not exist yet.",
+  "dataset_citation": null,
+  "parameters": {
+    "seed": 7,
+    "channels": 96,
+    "duration_s": 8.0,
+    "sample_rate_hz": 200.0,
+    "channel_spacing_m": 2.0,
+    "filter_low_hz": 15.0,
+    "filter_high_hz": 25.0
+  },
+  "processing_steps": [
+    "Butterworth bandpass filter, order 4, 15.0-25.0 Hz (scipy.signal.butter + filtfilt)"
+  ],
+  "software": {
+    "das_student_lab": "0.0.1",
+    "numpy": "2.4.6"
+  },
+  "output_summary": {
+    "shape": "96 channels x 1600 samples",
+    "duration_s": 8.0,
+    "distance_span_m": 190.0,
+    "mean": -2.2129961711836094e-05,
+    "standard_deviation": 0.12368915501997299
+  },
+  "labels": {
+    "data_type": "SIMULATED",
+    "warning": "This record describes a synthetic, pedagogical example. It is not measured data and must not be cited as a real acoustic observation."
+  }
+}

@@ -62,6 +62,8 @@ def make_synthetic_whale(
         raise ValueError("propagation_speed_m_s must be a positive finite number")
     if noise_std < 0 or not np.isfinite(noise_std):
         raise ValueError("noise_std must be a non-negative finite number")
+    if not isinstance(seed, int):
+        raise TypeError("seed must be an integer")
 
     samples = int(round(duration_s * sample_rate_hz))
     if samples < 2:
