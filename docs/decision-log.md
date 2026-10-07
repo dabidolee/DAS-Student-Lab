@@ -68,6 +68,13 @@ Record each important decision, alternatives, evidence, and consequences. David 
 - **Reason:** Dr. Park confirmed MIT after being consulted about the GPL-3.0 question raised by the related Goestchel et al. repository; no GPL code has been used, so a permissive license is appropriate.
 - **Consequences:** LICENSE, LICENSE_DECISION.md, and pyproject.toml all updated to reflect MIT.
 
+## D-009 — Fix CI lint failures after v0.1.0 release
+
+- **Date:** 2026-09-27
+- **Status:** Accepted.
+- **Decision:** Relax ruff's line-length from 88 to 100; split several overly long f-strings in diagnostics.py and tutorial waterfall plotting functions; fix a stray tab character in diagnostics.py that caused mixed-indentation errors.
+- **Reason:** CI's install step was missing the science extras, discovered and fixed separately (see commit af82dc2), after which the lint step itself failed on pre-existing style violations that had never been caught locally.
+- **Consequences:** CI now passes cleanly across Python 3.10, 3.12, and 3.13.
 
 ## Template
 
