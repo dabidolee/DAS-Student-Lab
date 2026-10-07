@@ -31,7 +31,9 @@ def bandpass_filter(
     return filtfilt(b, a, data, axis=1)
 
 
-def plot_waterfall(data: np.ndarray, time_s: np.ndarray, distance_m: np.ndarray, title: str) -> None:
+def plot_waterfall(
+    data: np.ndarray, time_s: np.ndarray, distance_m: np.ndarray, title: str
+) -> None:
     plt.figure(figsize=(8, 5))
     plt.imshow(
         data,

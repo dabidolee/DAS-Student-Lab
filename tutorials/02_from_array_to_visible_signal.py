@@ -33,7 +33,9 @@ def bandpass_filter(
     return filtfilt(b, a, data, axis=1)
 
 
-def plot_waterfall(data: np.ndarray, time_s: np.ndarray, distance_m: np.ndarray, title: str) -> None:
+def plot_waterfall(
+    data: np.ndarray, time_s: np.ndarray, distance_m: np.ndarray, title: str
+) -> None:
     """Plot a time-distance waterfall, the standard way to look at DAS data."""
 
     plt.figure(figsize=(8, 5))
@@ -97,7 +99,7 @@ def main() -> None:
         example.distance_m,
         title="Same array, wide bandpass filtered 1-90 Hz (SIMULATED)",
     )
-    print(f"\nSoftware: das_student_lab (this project), NumPy, SciPy, Matplotlib")
+    print("\nSoftware: das_student_lab (this project), NumPy, SciPy, Matplotlib")
     print("Note: this tutorial uses only synthetic data, no external dataset citation applies.")
     print("\nQuestions to answer in your own words:")
     print("1. Was your prediction correct? Why does narrowing the filter around")

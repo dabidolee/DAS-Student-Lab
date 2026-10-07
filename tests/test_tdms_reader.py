@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import numpy as np
 import pytest
-from nptdms import TdmsWriter, RootObject, ChannelObject
+from nptdms import ChannelObject, RootObject, TdmsWriter
 
 from das_student_lab.tdms_reader import read_tdms_subset
 

@@ -126,6 +126,14 @@ def format_summary(summary: ArraySummary) -> str:
     max_text = (
         "no finite values" if summary.maximum is None else f"{summary.maximum:.4g}"
     )
+    mean_text = (
+        "no finite values" if summary.mean is None else f"{summary.mean:.4g}"
+    )
+    std_text = (
+        "no finite values"
+        if summary.standard_deviation is None
+        else f"{summary.standard_deviation:.4g}"
+    )
     return "\n".join(
         [
             "DAS array summary (caller-declared units)",
@@ -137,8 +145,10 @@ def format_summary(summary: ArraySummary) -> str:
             f"  Array memory: {memory_mib:.3f} MiB",
             f"  NaN / infinite values: {summary.nan_count} / {summary.infinite_count}",
             f"  Finite minimum / maximum: {min_text} / {max_text}",
-	    f"  Mean / standard deviation: {summary.mean if summary.mean is not None else 'no finite values'} / {summary.standard_deviation if summary.standard_deviation is not None else 'no finite values'}",
+            f"  Mean / standard deviation: {mean_text} / {std_text}",
             f"  Data type: {summary.dtype}",
-            f"  Frequency resolution: {summary.frequency_resolution_hz:.4g} Hz (sample_rate_hz / number of time samples; the smallest frequency difference this array can distinguish)",
+            f"  Frequency resolution: {summary.frequency_resolution_hz:.4g} Hz "
+            f"(sample_rate_hz / number of time samples; the smallest frequency "
+            f"difference this array can distinguish)",
         ]
     )
