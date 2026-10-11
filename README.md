@@ -1,75 +1,58 @@
-# DAS Student Lab — Starter Repository
+# DAS Student Lab
 
-> Working scaffold for David Lee. This is not a finished scientific package.
+A beginner friendly Python package for learning distributed acoustic sensing (DAS). It takes a student from an unfamiliar DAS array to a documented, reproducible first experiment, using synthetic data and a real ocean cable example from the Ocean Observatories Initiative.
 
-DAS Student Lab is a proposed beginner-facing Python package for learning how to inspect DAS arrays, use safely sized examples, preserve data provenance, and begin reproducible experiments with established DAS tools.
+Status: early release (v0.1.0). The tools and tutorials below work. Whale detection and localization are not part of this package yet.
 
-## What this package already does
+## What it does
 
-- Installs as a modern `src/`-layout Python package, published to TestPyPI.
-- Generates a deterministic, explicitly synthetic time-distance array.
-- Summarizes array shape, duration, distance span, memory, dtype, mean, standard deviation, frequency resolution, and invalid values.
-- Downloads a small, real, checksum-verified OOI example file, with size limits, caching, and a full provenance manifest.
-- Reads a bounded subset of a real Silixa TDMS file into a numpy array.
-- Converts arrays into DASCore Patch objects, so DASCore's own processing tools (like `pass_filter`) work on this project's data.
-- Includes four tutorials: what DAS data is, waterfall visualization and filtering on synthetic data, recording a reproducible project, and a first look at real measured data.
-- Includes baseline unit tests, all currently passing, and continuous-integration configuration.
-- Includes persistent AI-assistant instructions and research/decision logs.
+- Installs as a modern `src` layout Python package.
+- Generates a deterministic, explicitly synthetic time and distance array.
+- Summarizes array shape, duration, distance span, memory, data type, mean, standard deviation, frequency resolution, and invalid values.
+- Downloads a small, real, checksum verified OOI example file, with size limits, caching, and a provenance manifest.
+- Reads a bounded subset of channels from a real Silixa TDMS file into a NumPy array (`read_tdms_subset`, with a 500 MiB safety limit).
+- Converts arrays into DASCore Patch objects, so DASCore tools like `pass_filter` work on this project's data.
+- Includes four tutorials, unit tests, and continuous integration.
 
-## What is deliberately not implemented
+## Tutorials
+
+1. `01_inspect_synthetic_data.py`: what DAS data is and how to read an array summary.
+2. `02_from_array_to_visible_signal.py`: waterfall plots and filtering on synthetic data.
+3. `03_design_a_small_project.py`: recording a reproducible project.
+4. `04_real_data_first_look.py`: a first look at real measured OOI data (an instrument noise check, not a whale recording).
+
+## Not implemented yet
 
 - Whale detection, matched filtering, moveout fitting, or localization.
-- Claims that the synthetic generator is a validated acoustic-propagation model.
-- A final package name, license, institutional affiliation, or publication claim.
+- Any claim that the synthetic generator is a validated acoustic propagation model.
 
-David should design and implement those pieces incrementally after reviewing existing tools and consulting Dr. Park.
+## Install
 
-## Setup
-
-Windows PowerShell:
-
-```powershell
-py -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
-python -m pytest
-```
-
-macOS/Linux:
+Requires Python 3.10 or newer.
 
 ```bash
-python3 -m venv .venv
+git clone https://github.com/dabidolee/DAS-Student-Lab.git
+cd DAS-Student-Lab
+python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
+```
+
+On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1` instead.
+
+Run the tests:
+
+```bash
 python -m pytest
 ```
 
-Run the small command-line status report:
-
-```bash
-das-student-lab info
-```
-
-Run the first tutorial as a Python script:
+Run the first tutorial:
 
 ```bash
 python tutorials/01_inspect_synthetic_data.py
 ```
 
-## Read before developing
+## How this project was built
 
-1. `CLAUDE.md` or `AGENTS.md`
-2. `docs/architecture.md`
-3. `docs/related-work.md`
-4. `docs/decision-log.md`
-5. `docs/research-log.md`
-6. `tests/TODO_TESTS.md`
-
-## Required data citation
-
-Wilcock, W., & Ocean Observatories Initiative. (2023). *Rapid: A Community Test of Distributed Acoustic Sensing on the Ocean Observatories Initiative Regional Cabled Array* [Data set]. Ocean Observatories Initiative. https://doi.org/10.58046/5J60-FJ89
-
-This repository is not affiliated with or endorsed by OOI, the University of Washington, WHOI, DASCore, or DAS4Whales.
-
+I wrote the package, tutorials, tests, and logs, and used AI coding assistants (Claude Code and ChatGPT) for
