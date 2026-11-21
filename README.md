@@ -12,7 +12,7 @@ Status: early release (v0.1.0). The tools and tutorials below work. Whale detect
 - Downloads a small, real, checksum verified OOI example file, with size limits, caching, and a provenance manifest.
 - Reads a bounded subset of channels from a real Silixa TDMS file into a NumPy array (`read_tdms_subset`, with a 500 MiB safety limit).
 - Converts arrays into DASCore Patch objects, so DASCore tools like `pass_filter` work on this project's data.
-- Includes four tutorials, unit tests, and continuous integration.
+- Includes five tutorials: what DAS data is, waterfall visualization and filtering on synthetic data, recording a reproducible project, a first look at real measured data, and measuring filter performance instead of judging it by eye.
 
 ## Tutorials
 

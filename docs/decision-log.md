@@ -76,6 +76,14 @@ Record each important decision, alternatives, evidence, and consequences. David 
 - **Reason:** CI's install step was missing the science extras, discovered and fixed separately (see commit af82dc2), after which the lint step itself failed on pre-existing style violations that had never been caught locally.
 - **Consequences:** CI now passes cleanly across Python 3.10, 3.12, and 3.13.
 
+## D-010 — Add a measured signal to noise metric and Tutorial 05
+
+- **Date:** 2026-11-19
+- **Status:** Accepted.
+- **Decision:** Add window_snr_db to a new metrics module, and a tutorial that sweeps bandpass width and reports measured SNR instead of judging plots by eye.
+- **Reason:** Tutorials 02 and 04 only show filter effects visually. A number needs a defined metric, and it can only be computed honestly where the signal arrival time is known, which is true of synthetic data and not of the real noise check recording.
+- **Consequences:** The tutorial states that limitation explicitly. The metric rejects overlapping windows, empty windows, NaNs, and zero power noise, so a misleading number is harder to produce by accident.
+
 ## Template
 
 ### D-XXX — Short title
