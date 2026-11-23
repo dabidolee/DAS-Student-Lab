@@ -84,6 +84,15 @@ Record each important decision, alternatives, evidence, and consequences. David 
 - **Reason:** Tutorials 02 and 04 only show filter effects visually. A number needs a defined metric, and it can only be computed honestly where the signal arrival time is known, which is true of synthetic data and not of the real noise check recording.
 - **Consequences:** The tutorial states that limitation explicitly. The metric rejects overlapping windows, empty windows, NaNs, and zero power noise, so a misleading number is harder to produce by accident.
 
+## D-011 — Park the real whale tutorial until a confirmed call exists
+
+- **Date:** 2026-11-23
+- **Status:** Accepted.
+- **Decision:** Do not build a whale detection tutorial on the OOI Optasense file from the DAS4Whales tutorial yet. Build Tutorial 06 on spectrograms instead.
+- **Evidence:** The file is 817,432,379 bytes (SHA-256 a09922969e740307bf26dc6ffa7fb9fbb834dc7cd7d4ced02c66b159fb1ce0cd, one complete download). It is 32,600 channels by 12,000 samples at 200 Hz, with a spatial sampling interval of 2.0419 m in its metadata, not the 2 m in its filename. Bandpass waterfalls showed five regular events, but spectrograms of channels 24280 to 24320 were ambiguous: persistent noise in the 17 to 25 Hz band and broadband bursts, with only one faint candidate downsweep near 4.7 s.
+- **Reason:** Calling these events whale calls would be an unsupported claim. The download is also slow and cannot resume, so it must be opt in.
+- **Consequences:** Revisit with a confirmed call time and channel range from a published or reviewed analysis, or from Dr. Park.
+
 ## Template
 
 ### D-XXX — Short title
