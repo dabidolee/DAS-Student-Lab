@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "das-student-lab"
-version = "0.1.0"
-description = "Starter scaffold for beginner-facing Distributed Acoustic Sensing education"
+version = "0.1.1"
+description = "Beginner friendly tools and tutorials for learning distributed acoustic sensing (DAS) data analysis"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

@@ -1,6 +1,6 @@
 {
   "project_name": "my_first_das_project",
-  "created_utc": "2026-09-20T19:17:00.963463+00:00",
+  "created_utc": "2026-11-23T02:35:25.909383+00:00",
   "data_source": "Synthetic data only (make_synthetic_whale). No external dataset was used in this run; a real-data version of this tutorial requires a TDMS reading adapter that does not exist yet.",
   "dataset_citation": null,
   "parameters": {
@@ -16,7 +16,7 @@
     "Butterworth bandpass filter, order 4, 15.0-25.0 Hz (scipy.signal.butter + filtfilt)"
   ],
   "software": {
-    "das_student_lab": "0.0.1",
+    "das_student_lab": "0.1.1",
     "numpy": "2.4.6"
   },
   "output_summary": {

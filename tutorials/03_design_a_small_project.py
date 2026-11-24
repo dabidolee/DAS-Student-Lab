@@ -12,6 +12,7 @@ demonstrated here is the same one that would apply to real data later.
 
 import json
 from datetime import datetime, timezone
+from importlib.metadata import version
 from pathlib import Path
 
 import numpy as np
@@ -95,7 +96,7 @@ def main() -> None:
             "(scipy.signal.butter + filtfilt)"
         ],
         "software": {
-            "das_student_lab": "0.0.1",
+            "das_student_lab": version("das-student-lab"),
             "numpy": np.__version__,
         },
         "output_summary": {
