@@ -14,6 +14,11 @@ All notable changes should be documented here.
 
 ## [0.0.1] — 2026-08-19
 
+## Unreleased
+
+### Added
+- Tutorial 07: sampling, aliasing, and what decimation can and cannot undo.
+
 ## 0.1.1 (2026-11-23)
 
 ### Added
