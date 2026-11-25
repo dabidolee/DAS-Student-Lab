@@ -19,6 +19,8 @@ All notable changes should be documented here.
 ### Added
 - Tutorial 07: sampling, aliasing, and what decimation can and cannot undo.
 
+- Tutorial 08: frequency wavenumber filtering, separating signals by apparent speed.
+
 ## 0.1.1 (2026-11-23)
 
 ### Added

@@ -18,7 +18,7 @@ The tutorials also need the science extras (DASCore, SciPy, Matplotlib, nptdms) 
 - Reads a bounded subset of channels from a Silixa TDMS file, using the sample rate and channel spacing stored in the file itself.
 - Converts arrays into DASCore Patch objects so DASCore's own tools, such as `pass_filter`, work on this project's data.
 - Measures signal to noise in a chosen window pair, and refuses overlapping, empty, or non finite windows.
-- Includes seven tutorials: what DAS data is, waterfall plots and filtering on synthetic data, recording a reproducible project, a first look at real measured data, measuring filter performance instead of judging it by eye, reading spectrograms, and sampling and aliasing.
+- Includes eight tutorials: what DAS data is, waterfall plots and filtering on synthetic data, recording a reproducible project, a first look at real measured data, measuring filter performance instead of judging it by eye, reading spectrograms, sampling and aliasing, and separating signals by speed with frequency wavenumber filtering.
 - Includes unit tests and continuous integration on Python 3.10, 3.12, and 3.13.
 
 ## What it does not do
